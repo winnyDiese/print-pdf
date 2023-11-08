@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import GeneratePdf from './compoenents/GeneratePdf'
 
 const getPeople = async ()=>{
   const res = await fetch("http://localhost:3000/api/people/")
@@ -7,7 +8,7 @@ const getPeople = async ()=>{
 
 export default async function Home() {
   const people = await getPeople()
-  console.log(people)
+  // console.log(people)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -40,6 +41,8 @@ export default async function Home() {
             <li key={i}>{name}</li>
           ))}
         </div>
+
+        <GeneratePdf person={people} />
 
       </div>
 
