@@ -1,5 +1,7 @@
+
 import Image from 'next/image'
 import GeneratePdf from './compoenents/GeneratePdf'
+import GenerateAutherPdf from './compoenents/GenrateAutherPdf'
 
 const getPeople = async ()=>{
   const res = await fetch("http://localhost:3000/api/people/")
@@ -43,6 +45,7 @@ export default async function Home() {
         </div>
 
         <GeneratePdf person={people} />
+        <GenerateAutherPdf  />
 
       </div>
 
